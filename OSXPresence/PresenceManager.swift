@@ -15,8 +15,8 @@ struct Person: Identifiable, Decodable {
 
     var statusText: String {
         if connected { return "At Home" }
-        guard let epoch = lastSeen else { return "Unknown" }
-        return Self.format(date: Date(timeIntervalSince1970: epoch))
+        guard let epoch = lastSeen else { return "Last Seen: Unknown" }
+        return "Last Seen: \(Self.format(date: Date(timeIntervalSince1970: epoch)))"
     }
 
     private static func format(date: Date) -> String {
